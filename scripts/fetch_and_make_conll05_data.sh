@@ -15,8 +15,10 @@ TRAIN_SECTIONS=(02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21)
 DEVEL_SECTIONS=(24)
 
 # Fetch data
+wget -O "${SRLPATH}/srlconll-1.1.tgz" http://www.lsi.upc.edu/~srlconll/srlconll-1.1.tgz
 wget -O "${SRLPATH}/conll05st-release.tar.gz" http://www.lsi.upc.edu/~srlconll/conll05st-release.tar.gz
 wget -O "${SRLPATH}/conll05st-tests.tar.gz" http://www.lsi.upc.edu/~srlconll/conll05st-tests.tar.gz
+tar xf "${SRLPATH}/srlconll-1.1.tgz" -C "${SRLPATH}"
 tar xf "${SRLPATH}/conll05st-release.tar.gz" -C "${SRLPATH}"
 tar xf "${SRLPATH}/conll05st-tests.tar.gz" -C "${SRLPATH}"
 
@@ -45,6 +47,7 @@ do
     gzip > "${CONLL05_PATH}/devel/words/devel.$s.words.gz"
 done
 
+rm "${SRLPATH}/srlconll-1.1.tgz"
 rm "${SRLPATH}/conll05st-release.tar.gz"
 rm "${SRLPATH}/conll05st-tests.tar.gz"
 
